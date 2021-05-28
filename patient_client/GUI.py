@@ -15,14 +15,14 @@ ws['bg'] = '#ffbf01'
 
 def printValue():
     pname = name.get()
-    Label(ws, text=f'{pname}, The search has been completed, please check the console for potential donors.', pady=20, bg='#ffbf00').pack()
+    bname = blood_group.get()
+    Label(ws, text=f'{pname}, The search has been completed, please check the console for .', pady=20, bg='#ffbf00').pack()
     # Label(ws, text= y, pady=20, bg='#ffbf00').pack()
+    print(find_donor(bname))
 name = Entry(ws)
 name.pack(pady=40)
 blood_group = Entry(ws)
 blood_group.pack(pady=40)
-x = blood_group.get()
-y = find_donor(x)
 Button(
     ws,
     text="Find a donor",
@@ -33,4 +33,3 @@ Button(
 
 ws.mainloop()
 
-print(find_donor(x))

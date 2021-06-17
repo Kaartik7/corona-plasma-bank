@@ -42,6 +42,7 @@ if __name__ == "__main__":
     print("Beginning Authentication process...")
 
     # Make use of user's access token if it already exists.
+    credentials = None
     if os.path.exists('token.json'):
         credentials = Credentials.from_authorized_user_file('token.json', SCOPES)
             
@@ -54,8 +55,7 @@ if __name__ == "__main__":
         else:
             # Creaates a flow variable based on our credentials.
             # Browser opens, requests a sign-in to google account
-            flow = InstalledAppFlow.from_client_secrets_file(
-                'credentials.json', SCOPES)
+            flow = InstalledAppFlow.from_client_secrets_file('credentials.json', SCOPES)
             credentials = flow.run_local_server(port=0)
         # Save the credentials to the token file so they may be used again.
         with open('token.json', 'w') as token:
@@ -70,5 +70,4 @@ if __name__ == "__main__":
 
     # Turn the data into a datframe so it is easier to manipulate.
     plasma_bank = format_data(range_data)
-
-
+    plasma_bank.to_csv("donors.csv")

@@ -102,7 +102,7 @@ e3.place(x=240, y=320)
 l7 = Label(root, text="Select blood group", width=20, font=("times", 12, "bold"), anchor="w", bg='grey')
 l7.place(x=70, y=370)
 
-# create a dropdown menu with the OptionMenu widget
+# create a dropdown menu 
 cvar = StringVar()
 cvar.set("Select blood group")
 option = ("A", "B", "AB", "O")
@@ -110,7 +110,6 @@ o = OptionMenu(root, cvar, *option)
 o.config(font=("times", 11), bd=3)
 o.place(x=240, y=380, width=200)
 
-# submit and cancel buttons
 b1 = Button(root, text='Submit', command=saveinfo, width=15, bg='green', fg='white',
             font=("times", 12, "bold"))
 b1.place(x=120, y=440)
